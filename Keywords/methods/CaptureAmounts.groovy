@@ -37,8 +37,8 @@ public class CaptureAmounts {
 
 		if(WebUI.waitForElementPresent(findTestObject('PlanDetails/APValue'), 2)) {
 
-			//String text4 = WebUI.getText(findTestObject('PlanDetails/APValue'))
-			//GlobalVariable.APAmount = text4.substring(2)
+			String text4 = WebUI.getText(findTestObject('PlanDetails/APValue'))
+			GlobalVariable.APAmount = text4.substring(2)
 		}
 	}
 }
