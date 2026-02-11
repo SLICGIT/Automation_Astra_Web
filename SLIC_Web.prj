@@ -6,12 +6,12 @@
    <UUID>10fdb845-07ae-41c1-997e-ec01b41d0ed1</UUID>
    <createdEdition>FREE</createdEdition>
    <createdVersion>10.1.0</createdVersion>
-   <freeLicense>false</freeLicense>
+   <freeLicense>true</freeLicense>
    <migratedVersion>5.9.0</migratedVersion>
-   <modifiedEdition>ENTERPRISE</modifiedEdition>
-   <modifiedVersion>10.4.2</modifiedVersion>
+   <modifiedEdition>FREE</modifiedEdition>
+   <modifiedVersion>10.1.0</modifiedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>E:\Katalon\SLIC_Web\SLIC_Web\SLIC_Web.prj</projectFileLocation>
+   <projectFileLocation>C:\Users\Neeraja.Nalla\git\Automation_Astra_Web\SLIC_Web.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
