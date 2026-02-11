@@ -1,0 +1,1029 @@
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+import internal.GlobalVariable as GlobalVariable
+import org.openqa.selenium.Keys as Keys
+import com.kms.katalon.core.annotation.Keyword as Keyword
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+import org.openqa.selenium.By as By
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.WebElement as WebElement
+import org.openqa.selenium.support.ui.ExpectedConditions as ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait as WebDriverWait
+import java.time.Duration as Duration
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import com.kms.katalon.core.testobject.ConditionType as ConditionType
+import javax.swing.JOptionPane as JOptionPane
+import org.openqa.selenium.interactions.Actions as Actions
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import org.apache.poi.ss.usermodel.*
+import java.nio.file.*
+import java.io.*
+
+
+
+if (Executor == 'Yes' || Executor == 'yes') {
+	
+	try {
+		
+		GlobalVariable.Status = "PASS"
+		GlobalVariable.Actual = "Proposal Creation Failed"
+		GlobalVariable.ProposalNo = ""
+		GlobalVariable.basePremAmount = ""
+		GlobalVariable.totalAmount = ""
+		GlobalVariable.SAAmount = ""
+		GlobalVariable.APAmount = ""
+
+		WebUI.openBrowser('https://slicuatr.shriramlife.in/statimliastra')
+		
+		WebUI.waitForPageLoad(10)
+		
+		WebUI.maximizeWindow()
+		
+		screenshotDir()
+		
+		WebUI.setText(findTestObject('Login/User ID'), Username)
+		
+		WebUI.setText(findTestObject('Login/Password'), Password)
+		
+		WebUI.setText(findTestObject('Login/EnterCaptcha'), '1234')
+		
+//		JOptionPane.showMessageDialog(null, 'Click OK to continue')
+		
+		WebUI.takeScreenshot(GlobalVariable.screenshotDir + '/1_LoginPage.jpg')
+		
+		generateReport()
+		//WebUI.waitForElementHasAttribute(findTestObject('Login/EnterCaptcha'), '', 0)
+		WebUI.enhancedClick(findTestObject('Login/Login'))
+		
+		WebUI.enhancedClick(findTestObject('HomePage/Menu'))
+		
+		WebUI.enhancedClick(findTestObject('HomePage/ProposalJourney'))
+		
+		WebUI.waitForElementClickable(findTestObject('HomePage/NewProposal'), 0)
+		
+		WebUI.enhancedClick(findTestObject('HomePage/NewProposal'))
+		
+		WebUI.waitForElementPresent(findTestObject('HomePage/ProposalType'), 20)
+		
+		WebUI.enhancedClick(findTestObject('HomePage/ProposalType'))
+		
+		WebUI.enhancedClick(findTestObject('HomePage/PolicyType'))
+		
+		WebUI.enhancedClick(findTestObject('HomePage/LifeType', [('Life_Type') : Life_Type]))
+		
+		WebUI.enhancedClick(findTestObject('HomePage/KYCType'))
+		
+		WebUI.enhancedClick(findTestObject('HomePage/Continue'))
+		
+		// 1️⃣ Get WebDriver from Katalon
+		// 2️⃣ Define explicit wait
+		// 3️⃣ Click the dropdown to open it
+		// 4️⃣ Wait for the dropdown list to appear
+		// 6️⃣ Optional: Verify selection
+		//String selectedText = driver.findElement(By.cssSelector("div[name='" + dropdownName + "'] span.ant-select-selection-item")).getText()
+		//println("✅ Selected dropdown value for '${dropdownName}': ${selectedText}")
+		selectAntDropdown('LATitle', 'Dr.')
+		
+		WebUI.setText(findTestObject('CustomerDetails/FirstName'), First_Name)
+		
+		WebUI.setText(findTestObject('CustomerDetails/LastName'), Last_Name)
+		
+		WebUI.setText(findTestObject('CustomerDetails/DOB'), DOB)
+		
+		WebUI.delay(1)
+		
+		//WebUI.waitForElementClickable(findTestObject('CustomerDetails/Gender'), 20)
+		WebUI.enhancedClick(findTestObject('CustomerDetails/Gender', [('Gender') : Gender]))
+		
+		WebUI.waitForElementClickable(findTestObject('CustomerDetails/MaritalStatus'), 20)
+		
+		WebUI.enhancedClick(findTestObject('CustomerDetails/MaritalStatus'))
+		
+		WebUI.setText(findTestObject('CustomerDetails/FatherSpousename'), Father_Name)
+		
+		WebUI.setText(findTestObject('CustomerDetails/Aadhar'), Aadhar)
+		
+		WebUI.setText(findTestObject('CustomerDetails/PANnumber'), PAN)
+		
+		selectAntDropdown('LAAnInR', '50001-100000')
+		
+		WebUI.setText(findTestObject('CustomerDetails/AnnualIncome'), Annual_Income)
+		
+		selectAntDropdown('LAPL', 'Hindi')
+		
+		selectAntDropdown('LAEduQual', 'Graduation')
+		
+		selectAntDropdown('LAOBJINS', 'Wealth Creation')
+		
+		WebUI.enhancedClick(findTestObject('CustomerDetails/PEP'))
+		
+		selectAntDropdown('LARisk_App', 'Medium')
+		
+		if (Life_Type == 'Own Life') {
+		
+			WebUI.enhancedClick(findTestObject('CustomerDetails/Disability'))
+			
+		}
+		
+		selectAntDropdown('Occ', 'Salaried Employee')
+		
+		selectAntDropdown('SubOccSalEmp', 'Teacher')
+		
+		WebUI.enhancedClick(findTestObject('CustomerDetails/EIA'))
+		
+		selectAntDropdown('Nationality', 'Indian')
+		
+		WebUI.enhancedClick(findTestObject('CustomerDetails/EIA'))
+		
+		WebUI.enhancedClick(findTestObject('CustomerDetails/Next'))
+		
+		if (Life_Type == 'Other Life') {
+			
+			WebUI.waitForPageLoad(20)
+			
+			selectAntDropdown('TPR1', 'Mr.')
+			
+			WebUI.setText(findTestObject('ProposerDetails/FirstName'), Prop_FirstName)
+			
+			WebUI.setText(findTestObject('ProposerDetails/LastName'), Prop_LastName)
+			
+			WebUI.setText(findTestObject('ProposerDetails/ProposerDOB'), Prop_DOB)
+			
+			selectAntDropdown('PropRelLA', 'Father')
+			
+			WebUI.setText(findTestObject('ProposerDetails/PAN'), Prop_PAN)
+			
+			selectAntDropdown('PropEDuQual', 'Graduation')
+			
+			WebUI.setText(findTestObject('ProposerDetails/Occupation'), Prop_Occupation)
+			
+			WebUI.setText(findTestObject('ProposerDetails/AnnualIncome'), Prop_Income)
+			
+			selectAntDropdown('NT1', 'Indian')
+			
+			WebUI.setText(findTestObject('ProposerDetails/Mobile'), Mobile_Number)
+			
+			WebUI.enhancedClick(findTestObject('ProposerDetails/VerifyMobile'))
+			
+			addWait()
+			
+			WebUI.enhancedClick(findTestObject('ProposerDetails/DisabilityNo'))
+			
+			WebUI.enhancedClick(findTestObject('ProposerDetails/Next'))
+			
+		}
+		
+		WebUI.waitForPageLoad(20)
+		
+		WebUI.setText(findTestObject('AddressDetails/Doornumber'), Door_No)
+		
+		WebUI.setText(findTestObject('AddressDetails/Street'), Street)
+		
+		WebUI.setText(findTestObject('AddressDetails/Pincode'), Pincode)
+		
+		//WebUI.waitForPageLoad(20, FailureHandling.STOP_ON_FAILURE)
+		addWait()
+		
+		selectAntDropdown('PerArea', 'Alwal')
+		
+		WebUI.enhancedClick(findTestObject('AddressDetails/CommAddressQues'))
+		
+		WebUI.setText(findTestObject('AddressDetails/LAMobilenumber'), Mobile_Number)
+		
+		WebUI.enhancedClick(findTestObject('AddressDetails/Verify'))
+		
+		WebUI.waitForPageLoad(20)
+		
+		WebUI.getText(findTestObject('AddressDetails/Mobileverification'))
+		
+		WebUI.verifyMatch('Mobile Number Verified Successfully', 'Mobile Number Verified Successfully', false)
+		
+		WebUI.enhancedClick(findTestObject('AddressDetails/whatsappQues'))
+		
+		WebUI.setText(findTestObject('AddressDetails/EmailID'), EmaiID)
+		
+		WebUI.enhancedClick(findTestObject('AddressDetails/Next'))
+		
+		WebUI.waitForPageLoad(20)
+		
+		WebUI.enhancedClick(findTestObject('chooseproduct/ProductName', [('Plan_Name') : Plan_Name]))
+		
+		selectAntDropdown('AgeProofType', 'PAN Card - Standard')
+			
+		WebUI.callTestCase(findTestCase('Test Cases/Plan Details Page/ECPV0X'),
+			[
+							('Life_Cover') : Life_Cover,
+							('Maturity_Benefit') : Maturity_Benefit,
+							('Death_Benefit') : Death_Benefit,
+							('SB_Benefit') : SB_Benefit,
+							('SB_Payout') : SB_Payout,
+							('Frequency') : Frequency,
+							('PT') : PT,
+							('PPT') : PPT,
+							('Sum_Assured') : Sum_Assured,
+							('EIC_Rider') : EIC_Rider,
+							('EIC_PT') : EIC_PT,
+							('EIC_PPT') : EIC_PPT,
+							('EIC_SA') : EIC_SA,
+							('CIWCare_Rider') : CIWCare_Rider,
+							('CIWCare_PT') : CIWCare_PT,
+							('CIWCare_PPT') : CIWCare_PPT,
+							('CIWCare_SA') : CIWCare_SA,
+							('CIW_Mat_Rider') : CIW_Mat_Rider,
+							('CIW_Mat_PT') : CIW_Mat_PT,
+							('CIW_Mat_PPT') : CIW_Mat_PPT,
+							('CIW_Mat_SA') : CIW_Mat_SA,
+							('CIP_Rider') : CIP_Rider,
+							('CIP_PT') : CIP_PT,
+							('CIP_PPT') : CIP_PPT,
+							('CIP_SA') : CIP_SA,
+							('AB_Rider') : AB_Rider,
+							('AB_PT') : AB_PT,
+							('AB_PPT') : AB_PPT,
+							('AB_SA') : AB_SA,
+							('FIB_Rider') : FIB_Rider,
+							('FIB_PT') : FIB_PT,
+							('FIB_PPT') : FIB_PPT,
+							('FIB_SA') : FIB_SA,
+							('Step_Rider') : Step_Rider,
+							('Step_PT') : Step_PT,
+							('Step_PPT') : Step_PPT,
+							('Step_SA') : Step_SA
+			],
+			FailureHandling.STOP_ON_FAILURE)
+		
+		if (BI_Required == 'Yes') {
+		
+			getBI()
+			
+		} else {
+		
+			WebUI.enhancedClick(findTestObject('PlanDetails/BIDownloadBtn', [('BI_Required') : BI_Required]))
+			
+		}
+		
+		WebUI.enhancedClick(findTestObject('SourceDetails/PolicySourcebyMeYes'))
+		
+		selectAntDropdown('SourceBy1', 'Direct')
+		
+		//selectAntDropdown('SourceCode1', 'J02076-JEET YOGESH KANSARA\t')
+		WebDriver driver = DriverFactory.getWebDriver()
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10))
+		
+		WebElement sourecCodeDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(('div[name=\'' + 'SourceCode1') + 
+		            '\']')))
+		
+		sourecCodeDropdown.click()
+		
+		WebElement SourceCodeOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(('//div[contains(@class,\'ant-select-item-option-content\') and contains(text(),\'' + 
+		            Username) + '\')]')))
+		
+		SourceCodeOption.click()
+		
+		//selectAntDropdown('SourceCode1', Username)
+		WebUI.enhancedClick(findTestObject('SourceDetails/Next'))
+		
+		WebUI.enhancedClick(findTestObject('SourceDetails/Confirm' //String optionXpath = "//div[contains(@class,'ant-select-item-option-content') and normalize-space(text())='" + valueToSelect + "']"
+		        ))
+		
+		WebUI.setText(findTestObject('Medicals Details/Weight'), Weight)
+		
+		WebUI.setText(findTestObject('Medicals Details/HeightCms'), Height)
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/SmokeQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/AlcoholQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/DeformityQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/DrugsQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/LeaveQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/MedicalTreatmentQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/AilmentsQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/HIVQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/RespiratoryQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/BPDiaQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/OtherIllQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/EarEyesDisorderQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/HospitalIlQuestion'))
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/AnaemiaQuestion'))
+		
+		if (Gender == 'Female') {
+		    WebUI.enhancedClick(findTestObject('Medicals Details/PregnencyQuestion'))
+		
+		    WebUI.enhancedClick(findTestObject('Medicals Details/MisscarriageQuestion'))
+		
+		    WebUI.enhancedClick(findTestObject('Medicals Details/DeliveredBabyQuestion'))
+		
+		    WebUI.enhancedClick(findTestObject('Medicals Details/GynProblemQuestion'))
+		
+		    WebUI.setText(findTestObject('Medicals Details/GynoProblemDetails'), 'Test')
+		}
+		
+		WebUI.enhancedClick(findTestObject('Medicals Details/Next'))
+		
+		WebUI.waitForPageLoad(10)
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/otherDetailsQuestion1'))
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/otherDetailsQuestion2'))
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/OtherDetailsQuestion3No'))
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/OtherDetailsQuestion4No'))
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/FamilyHistory/Addmember'))
+		
+		WebUI.setText(findTestObject('OtherDetails/FamilyHistory/Name'), Family1_Name //String optionXpath = ('//div[contains(@class,\'ant-select-item-option-content\') and normalize-space(text())=\'' + valueToSelect) + 
+		    )
+		
+		WebUI.setText(findTestObject('OtherDetails/FamilyHistory/Age'), Family1_Age)
+		
+		selectAntDropdown('status', 'Alive')
+		
+		selectAntDropdown('relationship', Family1_Name)
+		
+		selectAntDropdown('healthStatus', 'Good')
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/FamilyHistory/Done'), FailureHandling.STOP_ON_FAILURE)
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/FamilyHistory/Addmember'))
+		
+		WebUI.setText(findTestObject('OtherDetails/FamilyHistory/Name'), Family2_Name //String optionXpath = ('//div[contains(@class,\'ant-select-item-option-content\') and normalize-space(text())=\'' + valueToSelect) + 
+		    )
+		
+		//String optionXpath = ('//div[contains(@class,\'ant-select-item-option-content\') and normalize-space(text())=\'' + valueToSelect) + 
+		WebUI.setText(findTestObject('OtherDetails/FamilyHistory/Age'), Family2_Age)
+		
+		selectAntDropdown('status', 'Alive')
+		
+		selectAntDropdown('relationship', Family2_Name)
+		
+		selectAntDropdown('healthStatus', 'Good')
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/FamilyHistory/Done'))
+		
+		WebUI.enhancedClick(findTestObject('OtherDetails/FamilyHistory/Next'))
+		
+//		selectAntDropdown('Salut', 'Mrs.')
+//		
+//		WebUI.setText(findTestObject('NomineeDetails/Firstname'), Nominee_Name)
+//		
+//		WebUI.setText(findTestObject('NomineeDetails/DOB'), Nominee_DOB)
+//		
+//		WebUI.waitForPageLoad(10)
+//		
+//		WebUI.enhancedClick(findTestObject('NomineeDetails/Gender', [('Nominee_Gender') : Nominee_Gender]))
+//		
+//		addWait()
+//		
+//		selectAntDropdown('reln', 'Daughter')
+//		
+//		WebUI.enhancedClick(findTestObject('OtherDetails/FamilyHistory/Next'))
+		
+		//WebUI.setText(findTestObject('SmartcardDetails/LAshortName'), 'shortname')
+		//
+		//selectDropdownValueByLabel('Purpose Of Insurance', 'for Financial Security')
+		//
+		//selectDropdownValueByLabel('To my(Relationship of beneficiary)', 'Mother' // XPath for the dropdown input (based on label)
+		//    )
+		//
+		//// Click to open the dropdown
+		//// XPath for the option to select
+		//// Wait for the option to be visible and clickable
+		//WebUI.setText(findTestObject('SmartcardDetails/ProvideBeneficiaryName'), 'Testtwo')
+		//
+		//WebDriver driver = DriverFactory.getWebDriver()
+		//
+		//// Locate the hidden <input type="file"> element
+		//WebElement uploadInput1 = driver.findElement(By.xpath('//input[@id=\'upload324\' and @type=\'file\']'))
+		//
+		//// Use sendKeys() to upload file directly
+		////uploadInput1.sendKeys('C:\\Users\\Neeraja.Nalla\\Downloads\\Media.jpg')
+		//uploadInput1.sendKeys('D:\\DummyDocument.png')
+		//
+		//WebUI.delay(2)
+		//
+		//WebUI.enhancedClick(findTestObject('SmartcardDetails/Next'))
+//		WebUI.verifyElementPresent(findTestObject('Declaration/Photo'), 20)
+//		
+//		WebUI.delay(1)
+		
+		if (Life_Type == 'Own Life') {
+			
+			selectAntDropdown('Salut', 'Mrs.')
+			
+			WebUI.setText(findTestObject('NomineeDetails/Firstname'), Nominee_Name)
+			
+			WebUI.setText(findTestObject('NomineeDetails/DOB'), Nominee_DOB)
+			
+			WebUI.waitForPageLoad(10)
+			
+			WebUI.enhancedClick(findTestObject('NomineeDetails/Gender', [('Nominee_Gender') : Nominee_Gender]))
+			
+			addWait()
+			
+			selectAntDropdown('reln', 'Daughter')
+			
+			WebUI.enhancedClick(findTestObject('OtherDetails/FamilyHistory/Next'))
+			
+			WebUI.verifyElementPresent(findTestObject('Declaration/Photo'), 20)
+			
+			WebUI.delay(1)
+		
+			//WebDriver driver = DriverFactory.getWebDriver()       //driver is already deifned at source by page code.
+			// Locate the hidden <input type="file"> element
+			WebElement uploadInput2 = driver.findElement(By.xpath('//div[contains(@class,\'upload-photo\')]//input[@type=\'file\']'))
+			
+			// Use sendKeys() to upload file directly
+			//uploadInput2.sendKeys('C:\\Users\\Neeraja.Nalla\\Downloads\\Media.jpg')
+			uploadInput2.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+			selectAntDropdown('LAVerify', 'Signature of the LA')
+			
+			//WebDriver driver = DriverFactory.getWebDriver()
+			// Locate the hidden <input type="file"> element
+			WebElement uploadInput3 = driver.findElement(By.xpath('//span[text()=\'Signature of the LA\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+			
+			// Use sendKeys() to upload file directly
+			uploadInput3.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+			selectAntDropdown('AgentVerify', 'Signature of the Agent')
+			
+			//WebDriver driver = DriverFactory.getWebDriver()
+			// Locate the hidden <input type="file"> element
+			WebElement uploadInput = driver.findElement(By.xpath('//span[text()=\'Signature of the Agent\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+			
+			// Use sendKeys() to upload file directly
+			uploadInput.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+		} else {
+			
+			WebUI.verifyElementPresent(findTestObject('Declaration/Photo'), 20)
+			
+			WebUI.delay(0.5)
+			
+			WebElement uploadLAPhoto = driver.findElement(By.xpath('(//div[contains(@class,\'upload-photo\')]//input[@type=\'file\'])[1]'))
+			
+			// Use sendKeys() to upload file directly
+			uploadLAPhoto.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+			WebElement uploadPropPhoto = driver.findElement(By.xpath('(//div[contains(@class,\'upload-photo\')]//input[@type=\'file\'])[2]'))
+			
+			// Use sendKeys() to upload file directly
+			uploadPropPhoto.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+			selectAntDropdown('ProposerVerify', 'Signature of the Proposer')
+			
+			WebElement uploadPropSignature = driver.findElement(By.xpath('//span[text()=\'Signature of the Proposer\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+			
+			// Use sendKeys() to upload file directly
+			uploadPropSignature.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+			selectAntDropdown('LAVerify', 'Signature of the LA')
+			
+			//WebDriver driver = DriverFactory.getWebDriver()
+			// Locate the hidden <input type="file"> element
+			WebElement uploadLASignature = driver.findElement(By.xpath('//span[text()=\'Signature of the LA\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+			
+			// Use sendKeys() to upload file directly
+			uploadLASignature.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+			selectAntDropdown('AgentVerify', 'Signature of the Agent')
+			
+			//WebDriver driver = DriverFactory.getWebDriver()
+			// Locate the hidden <input type="file"> element
+			WebElement uploadAgentSignature = driver.findElement(By.xpath('//span[text()=\'Signature of the Agent\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+			
+			// Use sendKeys() to upload file directly
+			uploadAgentSignature.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+		}
+		
+		WebUI.enhancedClick(findTestObject('Declaration/Consent1'))
+		
+		WebUI.enhancedClick(findTestObject('Declaration/Consent2'))
+		
+		WebUI.enhancedClick(findTestObject('Declaration/Next'))
+		
+		WebUI.enhancedClick(findTestObject('Declaration/Agree'))
+		
+		WebUI.waitForPageLoad(10)
+		
+		if (Life_Type == 'Other Life') {
+			
+			selectAntDropdown('PropoIDProf', 'Ration card')
+			
+//			WebUI.setText(findTestObject('DocumentsUpload/ProposerPAN'), Prop_PAN)
+			
+			WebElement uploadPropIDProof = driver.findElement(By.xpath('//span[text()=\'Proposer ID Proof Upload\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+			
+			uploadPropIDProof.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+			selectAntDropdown('PropoAddProf', 'Bank Passbook copy')
+			
+//			WebUI.setText(findTestObject('DocumentsUpload/PropAadhaar'), 'VI1234567')
+			
+			WebElement uploadPropAddressProof = driver.findElement(By.xpath('//span[text()=\'Proposer Address Proof Upload\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+			
+			uploadPropAddressProof.sendKeys('D:\\DummyDocument.png')
+			
+			WebUI.delay(1)
+			
+		}
+		
+		WebUI.setText(findTestObject('DocumentsUpload/PANNUM'), PAN)
+		
+		WebElement uploadAgeProof = driver.findElement(By.xpath('//span[text()=\'LA Age Proof Upload\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadAgeProof.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		selectAntDropdown('IDPRDoc', 'Pan Card')
+		
+		WebUI.setText(findTestObject('DocumentsUpload/IDProofID'), PAN)
+		
+		WebElement uploadIDProof = driver.findElement(By.xpath('//span[text()=\'LA ID Proof Upload\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadIDProof.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		selectAntDropdown('AddPRDoc', 'AADHAR CARD')
+		
+		WebUI.setText(findTestObject('DocumentsUpload/AddressProofID'), Aadhar)
+		
+		WebElement uploadAddressProof = driver.findElement(By.xpath('//span[text()=\'LA Address Proof Upload\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadAddressProof.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		WebElement uploadDeclaration = driver.findElement(By.xpath('//span[text()=\'Declaration Photo Copy\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadDeclaration.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		selectAntDropdown('IncoPRDoc', 'Form 16')
+		
+		WebElement uploadIncomeProof = driver.findElement(By.xpath('//span[text()=\'LA Income Proof Upload\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadIncomeProof.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		WebUI.enhancedClick(findTestObject('DocumentsUpload/Next'))
+		
+		WebUI.waitForPageLoad(30)
+		
+		selectAntDropdown('NachRegdr', 'Manual NACH')
+		
+		WebUI.delay(1)
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/AddNACH'))
+		
+		WebUI.waitForPageLoad(20)
+		
+		WebUI.setText(findTestObject('NACHRegistration/AccHolderName'), First_Name)
+		
+		WebUI.setText(findTestObject('NACHRegistration/AccNumber'), Account_No)
+		
+		WebUI.setText(findTestObject('NACHRegistration/ReAccNumber'), Account_No)
+		
+		WebUI.setText(findTestObject('NACHRegistration/IFSC'), IFSC)
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/IFSCSearch'))
+		
+		addWait()
+		
+		selectAntDropdown('AccountTypeMN', 'Saving')
+		
+		selectAntDropdown('PrefDebitDateMN', '2')
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/SameBankBtn'))
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/Save'))
+		
+		addWait()
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/OkBtn'))
+		
+		addWait()
+		
+		WebElement uploadFront = driver.findElement(By.xpath('//span[text()=\'Take a Picture (Front Side)\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadFront.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		WebElement uploadBack = driver.findElement(By.xpath('//span[text()=\'Take a Picture (Back Side)\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadBack.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		WebElement uploadBankProof = driver.findElement(By.xpath('//span[text()=\'Copy of Bank Proof\']/ancestor::div[contains(@class,\'ant-upload-select\')]//input[@type=\'file\']'))
+		
+		uploadBankProof.sendKeys('D:\\DummyDocument.png')
+		
+		WebUI.delay(1)
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/Next'))
+		
+		WebUI.delay(1)
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/CheckBox'))
+		
+		WebUI.enhancedClick(findTestObject('NACHRegistration/Confirm'))
+		
+		WebUI.waitForPageLoad(20)
+		
+		WebUI.enhancedClick(findTestObject('Summary/Next'))
+		
+		WebUI.waitForPageLoad(20)
+		
+		WebUI.enhancedClick(findTestObject('PaymentDetails/PayOption'))
+		
+		WebUI.enhancedClick(findTestObject('PaymentDetails/SubmitBTN'))
+		
+		addWait()
+		
+		WebUI.enhancedClick(findTestObject('PaymentDetails/PaymentType'))
+		
+		addWait()
+		
+		WebUI.enhancedClick(findTestObject('PaymentDetails/InstrumentType'))
+		
+		WebUI.setText(findTestObject('PaymentDetails/ChequeNo'), Cheque_No)
+		
+		selectDropdownValueByLabel('Bank Name', 'A B E Co operative Bank')
+		
+		WebUI.setText(findTestObject('PaymentDetails/BankBranch'), Bank_Branch)
+		
+		selectDropdownValueByLabel('Deposit Bank', 'HDFC CMS')
+		
+		WebUI.enhancedClick(findTestObject('PaymentDetails/PayBTN'))
+		
+		addWait()
+		
+		Boolean error = WebUI.verifyTextPresent('credit limit', false, FailureHandling.OPTIONAL)
+		
+		if(error) {
+			
+			WebUI.takeScreenshot(GlobalVariable.screenshotDir + '/4_PaymentFail.jpg')
+			
+			WebUI.enhancedClick(findTestObject('CaptureProposal/BackBtn'))
+			
+			addWait()
+			
+			GlobalVariable.Actual = "Payment Failed. Credit Limit Issue"
+			
+			getApplicationNumber()
+			
+		} else {
+		
+			WebUI.enhancedClick(findTestObject('PaymentDetails/SubmitBTN'))
+			
+			addWait()
+			
+			getProposal()
+			
+			WebUI.takeScreenshot(GlobalVariable.screenshotDir + '/4_ProposalNo.jpg')
+			
+//			WebUI.enhancedClick(findTestObject('PaymentDetails/DoneBTN'))
+			
+			GlobalVariable.Actual = "Proposal Created Successfully"
+			
+			writeReportRow(TC_ID, Username, Plan_Name, TestCase_Desc, TestCase_Type, Expected_Result)
+			
+			WebUI.closeBrowser()
+			
+		}
+		
+	} catch (Exception e) {
+		
+		WebUI.takeScreenshot(GlobalVariable.screenshotDir + '/Validation_Error.jpg')
+		
+		GlobalVariable.Status = "FAIL"
+		
+		KeywordUtil.markFailed("Step failed: " + e.message)
+		
+		writeReportRow(TC_ID, Username, Plan_Name, TestCase_Desc, TestCase_Type, Expected_Result)
+		
+	} finally {
+		
+		WebUI.closeBrowser()
+		
+	}
+
+}	
+
+
+static def selectAntDropdown(String dropdownName, String valueToSelect) {
+    WebDriver driver = DriverFactory.getWebDriver()
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10))
+
+    WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(('div[name=\'' + dropdownName) + 
+                '\']')))
+
+    dropdown.click()
+
+    Actions actions = new Actions(driver)
+
+//    WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(('//div[contains(@class,\'ant-select-item-option-content\') and text()=\'' + 
+//                valueToSelect) + '\']')))
+
+    for (int i = 1; i < 3; i++) {
+		
+        try {
+			
+			def optionXPath = '(//div[contains(@class,\'ant-select-item-option-content\') and text()=\'' + valueToSelect + '\'])[' + i + ']'
+			
+			WebElement option = driver.findElement(By.xpath(optionXPath))
+			
+            if (option.isDisplayed()) {
+                option.click()
+				
+                break
+            }
+			
+        } catch (Exception e) {} 
+    }
+}
+
+def selectDropdownValueByLabel(String labelText, String valueToSelect) {
+    WebDriver driver = DriverFactory.getWebDriver()
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20))
+
+    String dropdownXPath = (('//label[.//span[normalize-space(text())=\'' + labelText) + '\']]') + '/preceding-sibling::div//div[contains(@class,\'ant-select-selector\')]'
+
+    WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(dropdownXPath)))
+
+    dropdown.click()
+
+//    String optionXPath = ('//div[contains(@class,\'ant-select-item-option-content\') and normalize-space(text())=\'' + valueToSelect) + 
+//    '\']'
+	String optionXPath = "//div[contains(@class,'ant-select-item-option-content') and contains(text(),'" + valueToSelect + "')]"
+
+    WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(optionXPath)))
+
+    option.click()
+
+    WebUI.comment("✅ Selected '$valueToSelect' for label '$labelText'")
+}
+
+static void selectDropdownValue(String labelText, String valueToSelect) {
+    WebDriver driver = DriverFactory.getWebDriver()
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20))
+
+    String dropdownXpath = ('//label[normalize-space(text())=\'' + labelText) + '\']/preceding::div[contains(@class,\'ant-select-selector\')][1]'
+
+    WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(dropdownXpath)))
+
+    dropdown.click()
+
+    Thread.sleep(1000)
+
+    Actions actions = new Actions(driver)
+
+    def optionXPath = '//div[contains(@class,\'ant-select-dropdown\') and not(contains(@class,\'hidden\'))]' + "//div[contains(@class,'ant-select-item-option-content') and normalize-space(text())='$valueToSelect']"
+
+    for (int i = 0; i < 50; i++) {
+        try {
+            WebElement option = driver.findElement(By.xpath(optionXPath))
+
+            if (option.isDisplayed()) {
+                option.click()
+
+                break
+            }
+        }
+        catch (Exception e) {
+        } 
+        
+        actions.sendKeys(Keys.ARROW_DOWN).perform()
+
+        WebUI.delay(0.2)
+    }
+}
+
+static def addWait() {
+    WebDriver driver = DriverFactory.getWebDriver()
+
+    while (driver.findElements(By.xpath('//span[contains(@class,\'ant-spin-dot-spin\')]')).size() > 0) {
+        WebUI.delay(1)
+    }
+    
+    WebUI.delay(0.5)
+}
+
+def getProposal() {
+    String text = WebUI.getText(findTestObject('ProposalNumber/ProposalNo'))
+
+    GlobalVariable.ProposalNo = text.substring(18)
+
+    println('Proposal Number: ' + GlobalVariable.ProposalNo)
+
+    return GlobalVariable.ProposalNo
+	
+}
+
+def getApplicationNumber() {
+	
+	WebUI.enhancedClick(findTestObject('CaptureProposal/BackBtn'))
+	
+	addWait()
+	
+	String text = WebUI.getText(findTestObject('CaptureProposal/ApplicationNo'))
+	
+	GlobalVariable.ProposalNo = text.substring(16)
+	
+	println('Application Number: ' + GlobalVariable.ProposalNo)
+	
+	KeywordUtil.markFailed("Step failed: " + e.message)
+	
+	writeReportRow(TC_ID, Username, Plan_Name, TestCase_Desc, TestCase_Type, Expected_Result)
+	
+}
+
+def screenshotDir() {
+    GlobalVariable.date = new Date().format('dd-MM-yyyy')
+	GlobalVariable.time = new Date().format('HH:mm:ss')
+
+    GlobalVariable.screenshotDir = "D:/Katalon/SLIC_Web/SLIC_Web/Screenshot/$GlobalVariable.date/$Plan_Name/$TC_ID"
+
+    new File(GlobalVariable.screenshotDir).mkdirs()
+
+//    return GlobalVariable.screenshotDir
+}
+
+def getBI() {
+	
+	// Define directories
+	String DOWNLOAD_DIR = "C:/Users/Satyam.Chouhan/Downloads"
+	String TARGET_DIR = "D:/Katalon/SLIC_Web/SLIC_Web/Screenshot/${GlobalVariable.date}/$Plan_Name/${TC_ID}"
+	
+	// Get list of files before download
+	List<String> beforeFiles = new File(DOWNLOAD_DIR).list() as List
+	
+	// Perform UI actions
+	WebUI.enhancedClick(findTestObject('PlanDetails/BIDownloadBtn', [('BI_Required') : BI_Required]))
+//	WebUI.waitForElementPresent(findTestObject("//span[contains(text(),'Downloaded BI Successfully')]"), 30)
+	addWait()
+	WebUI.delay(1)
+	WebUI.click(findTestObject('PlanDetails/BIDownloadOK'))
+	
+	// Get list of files after download
+	List<String> afterFiles = new File(DOWNLOAD_DIR).list() as List
+	
+	// Find new files
+	Set<String> newFiles = afterFiles.toSet() - beforeFiles.toSet()
+	
+	if (newFiles.size() > 0) {
+		String pdfFile = newFiles[0] // Assuming only one new file
+		Path source = Paths.get("${DOWNLOAD_DIR}/${pdfFile}")
+		Path target = Paths.get("${TARGET_DIR}/${pdfFile}")
+	
+		// Create target directory if not exists
+//		Files.createDirectories(Paths.get(TARGET_DIR))
+	
+		// Move file
+		Files.move(source, target, StandardCopyOption.REPLACE_EXISTING)
+		println "File moved: ${pdfFile}"
+	} else {
+		println "No new file found!"
+	}
+	
+	
+}
+
+def generateReport() {
+
+    // Define file path
+//    String date = new Date().format('dd-MM-yyyy')
+//    GlobalVariable.time = new Date().format('HH-mm-ss')
+    def filePath = "D:/Katalon/SLIC_Web/SLIC_Web/Screenshot/${GlobalVariable.date}/Test_Report.xlsx"
+    def file = new File(filePath)
+
+    // Create directory if not exists
+    file.parentFile.mkdirs()
+	
+	if (!file.exists()) {
+
+    	// Create workbook and sheet
+	    def workbook = new XSSFWorkbook()
+	    def sheet = workbook.createSheet("Report")
+	
+	    // Create header row
+	    def headers = ["Qrace_TestCase_ID", "User_ID", "Proposal_No", "Plan Name", "Test Case Description", "Test Case Type", "Expected Result", "Actual Result", "Status", "Date", "Time", "Base Premium", "Total Premium", "Sum Assured", "Annualized Premium"]
+	    def headerRow = sheet.createRow(0)
+	    headers.eachWithIndex { header, idx ->
+	        headerRow.createCell(idx).setCellValue(header)
+	    }
+	
+	    // Write workbook to file
+	    def outputStream = new FileOutputStream(file)
+	    workbook.write(outputStream)
+	    outputStream.close()
+	    workbook.close()
+	
+	    println "Excel report generated at: ${filePath}"
+		
+	}
+}
+
+
+static def writeReportRow(String TestCase_ID, String User_ID, String Plan_Name, String Test_Desc, String Test_Type, String Expected) {
+	
+	def filePath = "D:/Katalon/SLIC_Web/SLIC_Web/Screenshot/${GlobalVariable.date}/Test_Report.xlsx"
+	def file = new File(filePath)
+
+//	file.parentFile.mkdirs() // Ensure directory exists
+
+//	Workbook workbook
+//	def sheet
+
+	// Open existing workbook
+	def inputStream = new FileInputStream(file)
+	Workbook workbook = new XSSFWorkbook(inputStream)
+//	def sheet = workbook.getSheet("Report")
+	inputStream.close()
+	
+	def sheet = workbook.getSheet("Report")
+	if (sheet == null) {
+			sheet = workbook.createSheet("Report")
+		}
+
+	// Prepare data row
+//	def lastRowNum = sheet.getLastRowNum() + 1
+//	def row = sheet.createRow(lastRowNum)
+		
+		
+	def nextRowIndex = (sheet.getLastRowNum() == 0 && sheet.getRow(0) == null) ? 0 : sheet.getLastRowNum() + 1
+	def row = sheet.createRow(nextRowIndex)
+		
+	def data = [TestCase_ID, User_ID, GlobalVariable.ProposalNo, Plan_Name, Test_Desc, Test_Type, Expected, GlobalVariable.Actual, GlobalVariable.Status, GlobalVariable.date, GlobalVariable.time, GlobalVariable.basePremAmount, GlobalVariable.totalAmount, GlobalVariable.SAAmount, GlobalVariable.APAmount]
+	data.eachWithIndex { value, idx ->
+		row.createCell(idx).setCellValue(value)
+	}
+
+	// Save workbook
+	def outputStream = new FileOutputStream(file)
+	workbook.write(outputStream)
+	outputStream.close()
+	workbook.close()
+
+	println "Row appended successfully to: ${filePath}"
+}
+
+
+
+

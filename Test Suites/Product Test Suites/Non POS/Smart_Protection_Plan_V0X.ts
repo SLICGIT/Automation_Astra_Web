@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <description></description>
+   <name>Smart_Protection_Plan_V0X</name>
+   <tag></tag>
+   <isRerun>false</isRerun>
+   <mailRecipient></mailRecipient>
+   <numberOfRerun>0</numberOfRerun>
+   <pageLoadTimeout>10</pageLoadTimeout>
+   <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
+   <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
+   <rerunImmediately>true</rerunImmediately>
+   <testSuiteGuid>16221b33-f8c4-4ad7-bb78-4fc13a0e15ca</testSuiteGuid>
+   <testCaseLink>
+      <guid>ce23a190-e406-40ea-8c3e-ac50347c17cc</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/End to End flow</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>f52ab16e-9118-4d0a-98b5-12d043686603</id>
+         <iterationEntity>
+            <iterationType>RANGE</iterationType>
+            <value>68-92</value>
+         </iterationEntity>
+         <testDataId>Data Files/TestData/AstraTestData</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>f52ab16e-9118-4d0a-98b5-12d043686603</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Executor</value>
+         <variableId>796cf009-01f7-4112-8b24-da48a638ea93</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>f52ab16e-9118-4d0a-98b5-12d043686603</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TC_ID</value>
+         <variableId>92547254-7d25-43c1-bd4f-0841487f6037</variableId>
+      </variableLink>
+   </testCaseLink>
+</TestSuiteEntity>

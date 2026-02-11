@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <description></description>
+   <name>Golden_Jubilee_Plan_V0X</name>
+   <tag></tag>
+   <isRerun>false</isRerun>
+   <mailRecipient></mailRecipient>
+   <numberOfRerun>0</numberOfRerun>
+   <pageLoadTimeout>10</pageLoadTimeout>
+   <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
+   <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
+   <rerunImmediately>true</rerunImmediately>
+   <testSuiteGuid>6d57aa84-1ac2-4e3f-b356-98f71d3700e7</testSuiteGuid>
+   <testCaseLink>
+      <guid>e1d6c192-8d1b-46e0-ace8-ca94f6a24883</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/End to End flow</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>45d58e19-6d70-4528-ad69-660d6094759c</id>
+         <iterationEntity>
+            <iterationType>RANGE</iterationType>
+            <value>337-407</value>
+         </iterationEntity>
+         <testDataId>Data Files/TestData/AstraTestData</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>45d58e19-6d70-4528-ad69-660d6094759c</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Executor</value>
+         <variableId>796cf009-01f7-4112-8b24-da48a638ea93</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>45d58e19-6d70-4528-ad69-660d6094759c</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TC_ID</value>
+         <variableId>92547254-7d25-43c1-bd4f-0841487f6037</variableId>
+      </variableLink>
+   </testCaseLink>
+</TestSuiteEntity>

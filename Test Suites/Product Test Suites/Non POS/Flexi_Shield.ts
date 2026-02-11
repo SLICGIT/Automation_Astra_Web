@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <description></description>
+   <name>Flexi_Shield</name>
+   <tag></tag>
+   <isRerun>false</isRerun>
+   <mailRecipient></mailRecipient>
+   <numberOfRerun>0</numberOfRerun>
+   <pageLoadTimeout>10</pageLoadTimeout>
+   <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
+   <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
+   <rerunImmediately>true</rerunImmediately>
+   <testSuiteGuid>ff85a83a-8cc5-4fcd-a767-c1ffc4acdfb1</testSuiteGuid>
+   <testCaseLink>
+      <guid>d00e6ee7-995c-4ea5-ba52-3e26504282fa</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/End to End flow</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>118664b5-a639-47f8-9107-b9bf403ae9f1</id>
+         <iterationEntity>
+            <iterationType>RANGE</iterationType>
+            <value>512-560</value>
+         </iterationEntity>
+         <testDataId>Data Files/TestData/AstraTestData</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>118664b5-a639-47f8-9107-b9bf403ae9f1</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Executor</value>
+         <variableId>796cf009-01f7-4112-8b24-da48a638ea93</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>118664b5-a639-47f8-9107-b9bf403ae9f1</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TC_ID</value>
+         <variableId>92547254-7d25-43c1-bd4f-0841487f6037</variableId>
+      </variableLink>
+   </testCaseLink>
+</TestSuiteEntity>

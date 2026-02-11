@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <description></description>
+   <name>SanityCases</name>
+   <tag></tag>
+   <isRerun>false</isRerun>
+   <mailRecipient></mailRecipient>
+   <numberOfRerun>0</numberOfRerun>
+   <pageLoadTimeout>10</pageLoadTimeout>
+   <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
+   <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
+   <rerunImmediately>true</rerunImmediately>
+   <testSuiteGuid>22f2f9a7-748d-4df2-b08c-eeef898df77a</testSuiteGuid>
+   <testCaseLink>
+      <guid>56663edf-4129-4d5e-9c83-189c4b3fe20a</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Sanity Proposal Creation</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>45b49edc-2370-4c8f-852c-fd06004e4ba1</id>
+         <iterationEntity>
+            <iterationType>RANGE</iterationType>
+            <value>113-162</value>
+         </iterationEntity>
+         <testDataId>Data Files/TestData/AstraTestData</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>45b49edc-2370-4c8f-852c-fd06004e4ba1</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Executor</value>
+         <variableId>e2004086-5433-46a6-9d4c-625567e5e8be</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>45b49edc-2370-4c8f-852c-fd06004e4ba1</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TC_ID</value>
+         <variableId>21345bce-bf93-4dfd-a8fd-00c7b63295c3</variableId>
+      </variableLink>
+   </testCaseLink>
+</TestSuiteEntity>

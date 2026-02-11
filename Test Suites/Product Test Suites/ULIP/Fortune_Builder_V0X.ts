@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <description></description>
+   <name>Fortune_Builder_V0X</name>
+   <tag></tag>
+   <isRerun>false</isRerun>
+   <mailRecipient></mailRecipient>
+   <numberOfRerun>0</numberOfRerun>
+   <pageLoadTimeout>10</pageLoadTimeout>
+   <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
+   <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
+   <rerunImmediately>true</rerunImmediately>
+   <testSuiteGuid>e3691555-9c56-470a-a397-4b18f20d6e41</testSuiteGuid>
+   <testCaseLink>
+      <guid>8b8e4d37-e353-4bde-9a15-87575fa44c2c</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/End to End flow</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>8d9d57fc-87ba-413a-9063-b0a77cec37f5</id>
+         <iterationEntity>
+            <iterationType>RANGE</iterationType>
+            <value>408-440</value>
+         </iterationEntity>
+         <testDataId>Data Files/TestData/AstraTestData</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>8d9d57fc-87ba-413a-9063-b0a77cec37f5</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Executor</value>
+         <variableId>796cf009-01f7-4112-8b24-da48a638ea93</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>8d9d57fc-87ba-413a-9063-b0a77cec37f5</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TC_ID</value>
+         <variableId>92547254-7d25-43c1-bd4f-0841487f6037</variableId>
+      </variableLink>
+   </testCaseLink>
+</TestSuiteEntity>

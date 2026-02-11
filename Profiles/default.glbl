@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>default</name>
+   <tag></tag>
+   <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://slicuatc.shriramlife.in/statimliastra'</initValue>
+      <name>url</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>20</initValue>
+      <name>pageTimeout</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined test data container path</description>
+      <initValue>'E:/Katalon/AstraTestData.xlsx'</initValue>
+      <name>testDataPath</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined Screenshot directory path. Same needs to be updated in listener</description>
+      <initValue>'E:/Katalon/SLIC_Web/SLIC_Web/Screenshot/'</initValue>
+      <name>screenshotDir</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined report directory path</description>
+      <initValue>'E:/Katalon/SLIC_Web/SLIC_Web/Screenshot/'</initValue>
+      <name>reportPath</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to store execution date and update in report</description>
+      <initValue>''</initValue>
+      <name>date</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to store execution start time and update in report</description>
+      <initValue>''</initValue>
+      <name>time</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to store proposal number captured from screen</description>
+      <initValue>''</initValue>
+      <name>ProposalNo</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to store test case status and update in report</description>
+      <initValue>''</initValue>
+      <name>Status</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to store actual result and update in report</description>
+      <initValue>''</initValue>
+      <name>Actual</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture premium value from plan details page</description>
+      <initValue>''</initValue>
+      <name>basePremAmount</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture total premium value from plan details page</description>
+      <initValue>''</initValue>
+      <name>totalAmount</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture sum assured from </description>
+      <initValue>''</initValue>
+      <name>SAAmount</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture annualized premium value from plan details page</description>
+      <initValue>''</initValue>
+      <name>APAmount</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to update the screenshot name as per serial number</description>
+      <initValue>''</initValue>
+      <name>SSCount</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture execution duration</description>
+      <initValue>''</initValue>
+      <name>ExecutionTime</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture test case ID</description>
+      <initValue>''</initValue>
+      <name>testcaseID</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture plan name</description>
+      <initValue>''</initValue>
+      <name>planName</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Defined to capture user ID</description>
+      <initValue>''</initValue>
+      <name>userID</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

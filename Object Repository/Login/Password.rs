@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>Password</name>
+   <tag></tag>
+   <elementGuidId>829d9213-beb7-4614-826d-17bf60a97d4b</elementGuidId>
+   <imagePath>Screenshot/LoginPage.jpg</imagePath>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//*[@id='txtbxPassword']&#xd;
+&#xd;
+</value>
+      </entry>
+      <entry>
+         <key>IMAGE</key>
+         <value>Screenshot/LoginPage.jpg</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+</WebElementEntity>

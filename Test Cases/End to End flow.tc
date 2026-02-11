@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>End to End flow</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>e06163d2-829d-4d01-b7de-c922074479fc</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>874aacbd-6429-45ea-a308-20df21b2e2d4</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/TestData/AstraTestData</testDataId>
+   </testDataLinks>
+   <variableLinks>
+      <testDataLinkId>874aacbd-6429-45ea-a308-20df21b2e2d4</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>Executor</value>
+      <variableId>796cf009-01f7-4112-8b24-da48a638ea93</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>874aacbd-6429-45ea-a308-20df21b2e2d4</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>TC_ID</value>
+      <variableId>92547254-7d25-43c1-bd4f-0841487f6037</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>796cf009-01f7-4112-8b24-da48a638ea93</id>
+      <masked>false</masked>
+      <name>Executor</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>92547254-7d25-43c1-bd4f-0841487f6037</id>
+      <masked>false</masked>
+      <name>TC_ID</name>
+   </variable>
+</TestCaseEntity>

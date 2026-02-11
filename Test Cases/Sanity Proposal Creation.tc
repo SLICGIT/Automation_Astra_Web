@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Sanity Proposal Creation</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>13a23edb-bcd9-4e17-aa36-f5cfc2a307ef</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>17fc66cb-93f5-4b0e-835e-fce2aa15fcd2</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/TestData/SanityTestData</testDataId>
+   </testDataLinks>
+   <variableLinks>
+      <testDataLinkId>17fc66cb-93f5-4b0e-835e-fce2aa15fcd2</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>Executor</value>
+      <variableId>e2004086-5433-46a6-9d4c-625567e5e8be</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>17fc66cb-93f5-4b0e-835e-fce2aa15fcd2</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>TC_ID</value>
+      <variableId>21345bce-bf93-4dfd-a8fd-00c7b63295c3</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>e2004086-5433-46a6-9d4c-625567e5e8be</id>
+      <masked>false</masked>
+      <name>Executor</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>21345bce-bf93-4dfd-a8fd-00c7b63295c3</id>
+      <masked>false</masked>
+      <name>TC_ID</name>
+   </variable>
+</TestCaseEntity>
